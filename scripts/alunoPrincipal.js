@@ -9,3 +9,7 @@ let aluno = new Aluno(dadosUser['_id'],dadosUser['_nome'],'-', '-',-1,dadosUser[
 
 document.getElementById("texto").innerHTML = "Bem vindo "+aluno.getNome()+"!";
 
+document.getElementById("sair").onclick = function paginaTopicos(){
+    history.pushState({},null, "/index.html");
+    location.reload();
+}
