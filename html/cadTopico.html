@@ -8,11 +8,13 @@
         
         <form id="formTopico">
             <label for="labelAss">Assunto</label><br>
-            <input type="text" id="assunto"><br>
+            <input type="text" name="assunto" id="assunto"><br>
+            <label for="labelAutor">Autor</label><br>
+            <input type="text" name="autor" id="autor"><br>
             <label for="label">Texto</label><br>
-            <textarea id="texto" maxlength="5000" rows="10" cols="50"></textarea><br>
+            <textarea id="texto"name="texto" maxlength="5000" rows="10" cols="50"></textarea><br>
             <button type="submit" id="cadastrar">Cadastrar</button>
-            <button type="submit" id="cancelar">Cancelar</button>
+            <button type="button" id="cancelar">Cancelar</button>
         </form>
         <script type="module" src="/scripts/cadTopico.js"></script>
     </body>

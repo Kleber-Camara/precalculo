@@ -19,3 +19,25 @@
             $e->getMessage();
         }
     }
+
+    function topicoExists($assunto){
+        try{
+            include_once('connection.php');
+
+            $conn = getConn();
+
+            $sql = 'SELECT * FROM topico WHERE assunto=:assunto';
+
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':assunto',$assunto);
+            $stmt->execute();
+
+            if(($stmt) and ($stmt->fetch(PDO::FETCH_ASSOC))){
+                return true;
+            }else{
+                return false;
+            }
+        }catch(PDOException $e){
+            $e->getMessage();
+        }
+    }
