@@ -11,8 +11,13 @@ let prof = new Professor(dadosUser['_id'],dadosUser['_nome'],'-', '-',-1,dadosUs
 document.getElementById("texto").innerHTML = "Bem vindo "+prof.getNome()+"!";
 
 document.getElementById("sair").onclick = function sair(){
+    localStorage.removeItem("user");
     history.pushState({},null, "/index.html");
     location.reload();
+}
+
+document.getElementById("verTopicos").onclick = function paginaTopicosLancados(){
+    prof.verTopicosLancados();
 }
 
 document.getElementById("topico").onclick = function paginaTopicos(){

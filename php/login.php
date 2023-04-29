@@ -34,9 +34,11 @@
                 while($row_id = $stmt->fetch(PDO::FETCH_ASSOC)){
                     
                     if ($row_id['login'] == $login and $row_id['senha'] == $senha ){
+                        $conn = null;
                         return $row_id['id'];
                     }
                 }
+                $conn = null;
                 return (-1);
             }
         }catch(PDOException $e){
@@ -58,8 +60,10 @@
             $stmt->execute();
 
             if(($stmt) and ($stmt->fetch(PDO::FETCH_ASSOC))){
+                $conn = null;
                 return true;
             }else{
+                $conn = null;
                 return false;
             }
         }catch(PDOException $e){

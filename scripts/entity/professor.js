@@ -17,6 +17,11 @@ class Professor extends Usuario{
         location.reload();
     }
 
+    verTopicosLancados(){
+        history.pushState({},null, "/html/telaTopicosProf.html");
+        location.reload();
+    }
+
 }
 
 export default Professor
