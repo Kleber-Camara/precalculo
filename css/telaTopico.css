@@ -1,0 +1,70 @@
+/* Estilos para o corpo da página */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #c7e2f8;
+  padding-top: 10px;
+}
+
+/* Estilos para o container principal */
+.container {
+  width: 400px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+/* Estilos para o título principal */
+h1 {
+  text-align: center;
+  font-size: 36px;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+/* Estilos para o formulário */
+form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px; /* adicionado para criar um espaço abaixo do formulário */
+}
+
+/* Estilos para o campo de entrada de texto */
+#text {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+}
+
+/* Estilos para o botão Sair */
+#sair {
+  background-color: #f44336;
+  margin-top: auto;
+}
+
+#sair:hover {
+  background-color: #c62828;
+}
+
+/* Estilos para todos os botões */
+button {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}

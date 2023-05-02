@@ -1,7 +1,67 @@
-*{margin: 0}
+/* Define a fonte utilizada em todo o documento */
+body {
+  background-color: #c7e2f8;
+  font-family: Arial, sans-serif;
+}
 
-#loginform{
-    text-align: center;
-    margin-top: 10%;
-    
+/* Define a cor de fundo e a cor do texto do título principal */
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+/* Define o estilo do formulário de login */
+form {
+  width: 400px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+/* Define o estilo dos rótulos dos campos de entrada */
+label {
+  display: block;
+  margin-bottom: 10px;
+  color: #666;
+}
+
+/* Define o estilo dos campos de entrada */
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+/* Define o estilo dos botões de ação */
+button[type="submit"],
+button[type="button"] {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+  float: none;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Define o estilo dos botões de ação quando o cursor do mouse estiver sobre eles */
+button[type="submit"]:hover,
+button[type="button"]:hover {
+  background-color: #45a049;
+}
+
+/* Define o estilo dos botões de ação quando estiverem pressionados */
+button[type="submit"]:active,
+button[type="button"]:active {
+  background-color: #3e8e41;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3) inset;
 }
