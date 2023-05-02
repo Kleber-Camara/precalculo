@@ -2,17 +2,24 @@
 <html>
     <header>
         <title>Professor</title>
+        <link rel="stylesheet" href="/css/mainProfessor.css">
     </header>
     <body>
-        
-        <form id="formAluno">
-            <p id="texto">a</p>
-            <button type="submit" id="topico">Criar Topicos</button>
-            <button type="submit" id="questao">Criar Questionarios</button>
-            <button type="submit" id="verTopicos">Topicos lançados</button>
-            <button type="submit" id="perfil">Perfil</button>
-            <br><button type="submit" id="sair">Sair</button>
+        <div class="container">
+            <form id="formAluno">
+                <h1>Seja bem-vindo, Professor</h1>
+                <p id="texto">Escolha uma opção:</p>
+                <div class="botoes1">
+                    <button type="submit" id="topico">Criar Tópicos</button>
+                    <button type="submit" id="questao">Criar Questionários</button>
+                    <button type="submit" id="verTopicos">Tópicos Lançados</button>
+                </div>
+                <div class="botoes2">
+                    <button type="submit" id="perfil">Perfil</button>
+                    <button type="submit" id="sair">Sair</button>
+                </div>
         </form>
         <script type="module" src="/scripts/professorPrincipal.js"></script>
+        </div>
     </body>
 </html>
