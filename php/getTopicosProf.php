@@ -3,12 +3,10 @@
     try{
         include_once('topico.php');
 
-        //$autor = $_POST['_nome'];
         $user = json_decode(file_get_contents('php://input'), true);
         $autor = $user['_nome'];
 
         $listTopicos = getAllFromAutor($autor);
-       // $_SESSION['resposta'] = echo $_POST;
 
         if($listTopicos != null){
             header('Content-Type: application/json');

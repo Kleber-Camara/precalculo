@@ -7,7 +7,7 @@
 
             $conn = getConn();
 
-            $sql = 'INSERT INTO topico (assunto, autor, texto) VALUES (:assunto,:autor,:texto)';
+            $sql = 'INSERT INTO topico (id,assunto, autor, texto) VALUES (default,:assunto,:autor,:texto)';
 
             $stmt = $conn->prepare($sql);
 
@@ -79,5 +79,49 @@
     }
 
     function getTopicoFromAssunto($assunto){
-        echo 'topico';
+        try{
+            include_once('connection.php');
+
+            $conn = getConn();
+
+            $sql = 'SELECT * FROM topico WHERE assunto=:assunto';
+
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':assunto',$assunto);
+            $stmt->execute();
+            
+            if(($stmt) and ($stmt->rowCount() != 0)){
+                while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                    $result = ['id' => $row['id'],'autor' => $row['autor'],'assunto' => $row['assunto'],'texto' => $row['texto']];
+                }
+            }else{
+                $result = null;
+            }
+            return $result;
+        }catch(PDOException $e){
+            $e->getMessage();
+        }
+    }
+
+    function updateTopico($id,$assunto,$autor,$texto){
+        try{
+            include_once('connection.php');
+
+            $conn = getConn();
+
+            $sql = 'UPDATE topico SET assunto=:assunto, autor=:autor, texto=:texto WHERE id=:id';
+
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':assunto',$assunto);
+            $stmt->bindParam(':autor',$autor);
+            $stmt->bindParam(':texto',$texto);
+            $stmt->bindParam(':id',$id);
+
+            $stmt->execute();
+
+            $conn = null;
+            $stmt = null;
+        }catch(PDOException $e){
+            $e->getMessage();
+        }
     }
