@@ -29,6 +29,8 @@ document.getElementById("questao").onclick = function paginaQuestao(){
 }
 
 document.getElementById("perfil").onclick = function paginaPerfil(){
+    console.log(prof.getId())
+    localStorage.setItem('perfil', prof.getId());
     history.pushState({},null, "/html/perfilProfessor.html");
     location.reload();
 }
