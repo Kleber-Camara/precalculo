@@ -70,3 +70,53 @@
             $e->getMessage();
         }
     }
+
+    function getSenhaById($id){
+        try{
+            include_once('connection.php');
+
+            $conn = getConn();
+
+            $sql = 'SELECT senha FROM login WHERE id=:id';
+
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':id',$id);
+            $stmt->execute();
+
+            if(($stmt) and $stmt->rowCount()!=0){
+                while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                    $senha = $row['senha'];
+                }
+
+                $stmt = null;
+                $conn = null;
+
+                return $senha;
+            }
+        }catch(PDOException $e){
+            $e->getMessage();
+        }
+    }
+
+    function updateSenha($id, $senha){
+        try{
+            include_once('connection.php');
+
+            $conn = getConn();
+
+            $sql = 'UPDATE login SET senha=:senha WHERE id=:id';
+
+            $stmt = $conn->prepare($sql);
+
+            $stmt->bindParam(':senha',$senha);
+            $stmt->bindParam(':id',$id);
+
+            $stmt->execute();
+
+            $stmt = null;
+            $conn = null;
+
+        }catch(PDOException $e){
+            $e->getMessage();
+        }
+    }

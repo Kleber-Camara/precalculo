@@ -26,7 +26,6 @@ document.getElementById("atualizar").onclick = async function atualizarDados(){
         });
         if(dados.ok){
             const realDados = await dados.json();
-            console.log(realDados);
             alert(realDados['msg']);
             history.pushState({},null, "/html/perfilProfessor.html");
             location.reload();
@@ -42,8 +41,6 @@ document.getElementById("atualizar").onclick = async function atualizarDados(){
 async function preencheEdit(){
     try{
         let id = localStorage.getItem("perfil");
-
-        console.log(id);
 
         const dados = await fetch('/php/verPerfil.php',{
             method: 'POST',

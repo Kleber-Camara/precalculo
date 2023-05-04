@@ -14,11 +14,14 @@ document.getElementById("edperfil").onclick = function paginaEditPerfil(){
     location.reload();
 }
 
+document.getElementById("edSenha").onclick = function paginaEditPerfil(){
+    history.pushState({},null, "/html/editSenha.html");
+    location.reload();
+}
+
 async function carregarDados(){
     try{
         let id = localStorage.getItem("perfil");
-
-        console.log(id);
 
         const dados = await fetch('/php/verPerfil.php',{
             method: 'POST',
@@ -27,7 +30,6 @@ async function carregarDados(){
 
         if(dados.ok){
             const realDados = await dados.json();
-            console.log(realDados);
             document.getElementById('nome').innerHTML = realDados['nome'];
             document.getElementById('email').innerHTML = realDados['email'];
         }else{

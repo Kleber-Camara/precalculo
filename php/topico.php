@@ -132,7 +132,7 @@
 
             $conn = getConn();
 
-            $sql = 'UPDATE topico SET  autor=:novoAutor WHERE autor=:autor';
+            $sql = 'UPDATE topico SET autor=:novoAutor WHERE autor=:autor';
 
             $stmt = $conn->prepare($sql);
             

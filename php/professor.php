@@ -80,7 +80,7 @@
             $conn = getConn();
             $sql = 'SELECT * FROM professor WHERE id=:id';
             $stmt = $conn->prepare($sql);
-            $stmt->bindParam(':idd',$id);
+            $stmt->bindParam(':id',$id);
             $stmt->execute();
 
             if(($stmt) and ($stmt->rowCount() != 0)){
