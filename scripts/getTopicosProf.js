@@ -62,11 +62,13 @@ async function getTopicos(){
                 label.className = "tituloTopico";
 
                 div.innerHTML = ' ';
-                document.body.appendChild(div);
-                document.body.appendChild(label);
-                document.body.appendChild(buttonEditar);
-                document.body.appendChild(buttonDeletar);
-                document.body.appendChild(buttonVer);
+                div.id = "div"+realDados[obj];
+                document.getElementById("formTopico").appendChild(div);
+                document.getElementById("div"+realDados[obj]).appendChild(label);
+                document.getElementById("div"+realDados[obj]).appendChild(buttonEditar);
+                document.getElementById("div"+realDados[obj]).appendChild(buttonDeletar);
+                document.getElementById("div"+realDados[obj]).appendChild(buttonVer);
+                
             }
             for(var obj in realDados){
                 

@@ -9,6 +9,11 @@ document.getElementById("voltar").onclick = function paginaTopicos(){
     location.reload();
 }
 
+document.getElementById("edperfil").onclick = function paginaEditPerfil(){
+    history.pushState({},null, "/html/editPerfilProf.html");
+    location.reload();
+}
+
 async function carregarDados(){
     try{
         let id = localStorage.getItem("perfil");

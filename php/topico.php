@@ -125,3 +125,25 @@
             $e->getMessage();
         }
     }
+
+    function updateTopicoNome($autor,$novoAutor){
+        try{
+            include_once('connection.php');
+
+            $conn = getConn();
+
+            $sql = 'UPDATE topico SET  autor=:novoAutor WHERE autor=:autor';
+
+            $stmt = $conn->prepare($sql);
+            
+            $stmt->bindParam(':novoAutor',$novoAutor);
+            $stmt->bindParam(':autor',$autor);
+
+            $stmt->execute();
+
+            $conn = null;
+            $stmt = null;
+        }catch(PDOException $e){
+            $e->getMessage();
+        }
+    }
