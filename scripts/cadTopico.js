@@ -36,5 +36,7 @@ async function criarTopico(e){
         document.getElementById("texto").value = " ";
     }
 
-    return alert(realDados['msg']);
+    alert(realDados['msg']);
+    history.pushState({},null, '/html/mainProfessor.html');
+    location.reload();
 }

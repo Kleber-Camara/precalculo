@@ -103,6 +103,31 @@
         }
     }
 
+    function getTopicos(){
+        try{
+            include_once('connection.php');
+
+            $conn = getConn();
+
+            $sql = 'SELECT * FROM topico';
+
+            $stmt = $conn->prepare($sql);
+            
+            $stmt->execute();
+            
+            if(($stmt) and ($stmt->rowCount() != 0)){
+                while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                    $result = ['id' => $row['id'],'autor' => $row['autor'],'assunto' => $row['assunto'],'texto' => $row['texto']];
+                }
+            }else{
+                $result = null;
+            }
+            return $result;
+        }catch(PDOException $e){
+            $e->getMessage();
+        }
+    }
+
     function updateTopico($id,$assunto,$autor,$texto){
         try{
             include_once('connection.php');
@@ -138,6 +163,27 @@
             
             $stmt->bindParam(':novoAutor',$novoAutor);
             $stmt->bindParam(':autor',$autor);
+
+            $stmt->execute();
+
+            $conn = null;
+            $stmt = null;
+        }catch(PDOException $e){
+            $e->getMessage();
+        }
+    }
+
+    function deletaByName($assunto){
+        try{
+            include_once('connection.php');
+
+            $conn = getConn();
+
+            $sql = 'DELETE FROM topico WHERE assunto=:assunto';
+
+            $stmt = $conn->prepare($sql);
+            
+            $stmt->bindParam(':assunto',$assunto);
 
             $stmt->execute();
 

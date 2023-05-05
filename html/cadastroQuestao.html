@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <title>Cadastrar Topico</title>
+    <link rel="stylesheet" href="/css/cadTopico.css">
+    <meta charset="UTF-8">
+</header>
+
+<body>
+    <div class="container">
+        <form id="formQuest">
+            <h1>Cadastrar Questão</h1>
+            <label for="labelAutor">Assunto</label><br>
+            <input type="text" name="assunto" id="assunto"><br>
+            <label for="labelAutor">Enunciado</label><br>
+            <textarea name="enun" id="enun" maxlength="200" rows="10" cols="50"></textarea><br>
+            <label for="labelAutor">Opção A</label><br>
+            <input type="text" name="opa" id="opa"><br>
+            <label for="labelAutor">Opção B</label><br>
+            <input type="text" name="opb" id="opb"><br>
+            <label for="labelAutor">Opção C</label><br>
+            <input type="text" name="opc" id="opc"><br>
+            <label for="labelAutor">Resposta</label><br>
+            <input type="text" name="resp" id="resp"><br>
+            <div class="botoes2">
+                <button type="submit" id="cadastrar">Cadastrar</button>
+                <button type="button" id="cancelar">Cancelar</button>
+            </div>
+        </form>
+
+        <script type="module" src="/scripts/cadQuestao.js"></script>
+    </div>
+</body>
+
+</html>

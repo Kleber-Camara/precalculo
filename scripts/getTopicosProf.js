@@ -1,8 +1,29 @@
 'use strict'
 
-function deletaTopico(topico){
+async function deletaTopico(topico){
     localStorage.setItem(topico,topico);
-    console.log(localStorage.getItem(topico))
+    
+    localStorage.setItem('deletar',topico);
+    let con = confirm("Deseja deletar o topico "+topico+"?");
+    if(con == true){
+        try{
+            let nomeTop = localStorage.getItem('deletar');
+
+            const dados = await fetch('/php/deletaTopico.php',{
+                method: 'POST',
+                body: JSON.stringify(nomeTop)
+            });
+
+            if(dados.ok){
+                const realDados = await dados.json();
+                alert(realDados['msg']);
+            }else{
+                throw new Error(dados.status);
+            }
+        }catch(Error){
+            console.log(Error);
+        }
+    }
 }
 
 function updateTopico(topico){
@@ -21,11 +42,11 @@ function verTopico(topico){
     location.reload();
 }
 
-
 document.getElementById("sair").onclick = function paginaTopicos(){
     history.pushState({},null, "/html/mainProfessor.html");
     location.reload();
 }
+
 async function getTopicos(){
     try{
         let user = JSON.parse(localStorage.getItem("user"));
@@ -37,59 +58,58 @@ async function getTopicos(){
 
         if(dados.ok){
             const realDados = await dados.json();
+            if(realDados['msg'] == null){
+                for(var obj in realDados){
+                    let div = document.createElement('div');
+                    let label = document.createElement('label');
 
-            for(var obj in realDados){
+                    const buttonEditar = document.createElement('button');
+                    buttonEditar.textContent = "Editar";
+                    buttonEditar.id = "editar"+realDados[obj];
+                    buttonEditar.className = "botoesTopico";
+                    
+                    const buttonDeletar = document.createElement('button');
+                    buttonDeletar.textContent = "Deletar";
+                    buttonDeletar.id ="deletar"+realDados[obj];
+                    buttonDeletar.className = "botoesTopico";
+                    
+                    const buttonVer = document.createElement('button');
+                    buttonVer.textContent = "Ver";
+                    buttonVer.id = "ver"+realDados[obj];
+                    buttonVer.className = "botoesTopico";
 
-                let div = document.createElement('div');
-                let label = document.createElement('label');
+                    label.textContent = realDados[obj];
+                    label.className = "tituloTopico";
 
-                const buttonEditar = document.createElement('button');
-                buttonEditar.textContent = "Editar";
-                buttonEditar.id = "editar"+realDados[obj];
-                buttonEditar.className = "botoesTopico";
-                
-                const buttonDeletar = document.createElement('button');
-                buttonDeletar.textContent = "Deletar";
-                buttonDeletar.id ="deletar"+realDados[obj];
-                buttonDeletar.className = "botoesTopico";
-                
-                const buttonVer = document.createElement('button');
-                buttonVer.textContent = "Ver";
-                buttonVer.id = "ver"+realDados[obj];
-                buttonVer.className = "botoesTopico";
+                    div.innerHTML = ' ';
+                    div.id = "div"+realDados[obj];
+                    document.getElementById("formTopico").appendChild(div);
+                    document.getElementById("div"+realDados[obj]).appendChild(label);
+                    document.getElementById("div"+realDados[obj]).appendChild(buttonEditar);
+                    document.getElementById("div"+realDados[obj]).appendChild(buttonDeletar);
+                    document.getElementById("div"+realDados[obj]).appendChild(buttonVer);
+                    
+                }
+                for(var obj in realDados){
+                    
+                    let temp = document.getElementById('deletar'+realDados[obj]);
+                    let tempObj = realDados[obj];
+                    temp.addEventListener('click',() =>{
+                        deletaTopico(tempObj);
+                    });
 
-                label.textContent = realDados[obj];
-                label.className = "tituloTopico";
-
-                div.innerHTML = ' ';
-                div.id = "div"+realDados[obj];
-                document.getElementById("formTopico").appendChild(div);
-                document.getElementById("div"+realDados[obj]).appendChild(label);
-                document.getElementById("div"+realDados[obj]).appendChild(buttonEditar);
-                document.getElementById("div"+realDados[obj]).appendChild(buttonDeletar);
-                document.getElementById("div"+realDados[obj]).appendChild(buttonVer);
-                
-            }
-            for(var obj in realDados){
-                
-                let temp = document.getElementById('deletar'+realDados[obj]);
-                console.log(temp.id)
-                let tempObj = realDados[obj];
-                temp.addEventListener('click',() =>{
-                    deletaTopico(tempObj);
-                });
-
-                temp = document.getElementById('editar'+realDados[obj]);
-                tempObj = realDados[obj];
-                temp.addEventListener('click', () =>{
-                    updateTopico(tempObj);
-                });
-                
-                temp = document.getElementById('ver'+realDados[obj]);
-                tempObj = realDados[obj];
-                temp.addEventListener('click', ()=>{
-                    verTopico(tempObj);
-                });
+                    temp = document.getElementById('editar'+realDados[obj]);
+                    tempObj = realDados[obj];
+                    temp.addEventListener('click', () =>{
+                        updateTopico(tempObj);
+                    });
+                    
+                    temp = document.getElementById('ver'+realDados[obj]);
+                    tempObj = realDados[obj];
+                    temp.addEventListener('click', ()=>{
+                        verTopico(tempObj);
+                    });
+                }
             }
         }else{
 

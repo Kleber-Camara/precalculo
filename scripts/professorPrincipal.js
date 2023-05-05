@@ -34,3 +34,8 @@ document.getElementById("perfil").onclick = function paginaPerfil(){
     history.pushState({},null, "/html/perfilProfessor.html");
     location.reload();
 }
+
+document.getElementById('questao').onclick = function criarQuest(){
+    history.pushState({},null, "/html/cadastroQuestao.html");
+    location.reload();
+}

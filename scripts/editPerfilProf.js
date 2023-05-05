@@ -18,7 +18,6 @@ document.getElementById("atualizar").onclick = async function atualizarDados(){
             nome: document.getElementById('nome').value,
             email: document.getElementById('email').value
         }
-        console.log(dadosToString);
         const dados = await fetch('/php/updatePerfilProf.php',{
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},
