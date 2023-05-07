@@ -13,3 +13,15 @@ document.getElementById("sair").onclick = function paginaTopicos(){
     history.pushState({},null, "/index.html");
     location.reload();
 }
+
+document.getElementById('perfil').onclick = function paginaPerfil(){
+    localStorage.setItem('perfil', aluno.getId());
+    history.pushState({},null, "/html/perfilAluno.html");
+    location.reload();
+}
+
+document.getElementById('topicos').onclick = function paginaTopico(){
+    localStorage.setItem('perfil', aluno.getId());
+    history.pushState({},null, "/html/telaTopicosAluno.html");
+    location.reload();
+}

@@ -1,11 +1,11 @@
 <?php
 
     try{
-        include_once('professor.php');
+        include_once('aluno.php');
         include_once('login.php');
         $id = json_decode(file_get_contents('php://input'));
  
-        $logId = getIdLoginProf($id);
+        $logId = getIdLoginAluno($id);
 
         $senha = getSenhaById($logId);
 

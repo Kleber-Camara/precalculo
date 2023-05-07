@@ -74,7 +74,7 @@
         }
     }
 
-    function getIdLogin($id){
+    function getIdLoginProf($id){
         try{
             include_once('connection.php');
             $conn = getConn();

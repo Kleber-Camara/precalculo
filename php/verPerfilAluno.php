@@ -1,11 +1,11 @@
 <?php 
     try{
-        include_once('professor.php');
+        include_once('aluno.php');
 
         $id = json_decode(file_get_contents('php://input'));
 
         
-        $user = getBySelfIdProf($id);
+        $user = getSelfByIdAluno($id);
         if($user != null){
             header('Content-Type: application/json');
             echo json_encode($user);
