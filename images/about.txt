@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Indie Flower
+- Font Author: Copyright (c) 2010, Kimberly Geswein (kimberlygeswein.com kimberlygeswein@gmail.com)
+- Font Source: http://fonts.gstatic.com/s/indieflower/v17/m8JVjfNVeKWVnh3QMuKkFcZlbkGG1dKEDw.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))

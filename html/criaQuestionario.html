@@ -3,20 +3,22 @@
     <head>
         <link rel="icon" href="./images/favicon.ico"/>
     </head>
-
     <header>
-        <title>Topicos</title>
+        <title>Questionario</title>
         <link rel="stylesheet" href="/css/telaTopico.css">
-        <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
     </header>
-    
     <body>
         <div class="container">
         <form id="formTopico">
-            <h1>Topicos Lançados: </h1>
+            <h1>Questionario</h1>
+            <label>Assunto</label>
+            <select id="assuntos">
+
+            </select>
         </form>
+        <button type="submit" id="questao">Resolver questões</button>
         <button type="submit" id="sair">Voltar</button>
-        <script type="module" src="/scripts/getTopicosProf.js"></script>
+        <script type="module" src="/scripts/selecaoAssunto.js"></script>
     </div>
     </body>
 </html>

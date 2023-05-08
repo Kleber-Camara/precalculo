@@ -7,7 +7,7 @@ let dadosUser = JSON.parse(localStorage.getItem("user"));
 
 let aluno = new Aluno(dadosUser['_id'],dadosUser['_nome'],'-', '-',-1,dadosUser['email'],dadosUser['curso'])
 
-document.getElementById("texto").innerHTML = "Bem vindo "+aluno.getNome()+"!";
+document.getElementById("texto").innerHTML = "Seja bem-vindo, "+aluno.getNome()+"!";
 
 document.getElementById("sair").onclick = function paginaTopicos(){
     history.pushState({},null, "/index.html");
@@ -23,5 +23,11 @@ document.getElementById('perfil').onclick = function paginaPerfil(){
 document.getElementById('topicos').onclick = function paginaTopico(){
     localStorage.setItem('perfil', aluno.getId());
     history.pushState({},null, "/html/telaTopicosAluno.html");
-    location.reload();
+    location.reload(); 
+}
+
+document.getElementById('questionarios').onclick = function paginaQuestao(){
+    localStorage.setItem('perfil', aluno.getId());
+    history.pushState({},null, "/html/criaQuestionario.html");
+    location.reload(); 
 }

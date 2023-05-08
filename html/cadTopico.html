@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html>
-<header>
-    <title>Cadastrar Topico</title>
-    <link rel="stylesheet" href="/css/cadTopico.css">
-</header>
+    <head>
+        <link rel="icon" href="./images/favicon.ico"/>
+    </head>
+    <header>
+        <title>Cadastrar Topico</title>
+        <link rel="stylesheet" href="/css/cadTopico.css">
+    </header>
 
-<body>
-    <div class="container">
-        <form id="formTopico">
-            <h1>Cadastrar Topico</h1>
-            <p id="texto">Escolha uma opção:</p>
-            <label for="labelAss">Assunto</label><br>
-            <input type="text" name="assunto" id="assunto"><br>
-            <label for="labelAutor">Autor</label><br>
-            <input type="text" name="autor" id="autor"><br>
-            <label for="label">Texto</label><br>
-            <textarea id="texto" name="texto" maxlength="5000" rows="10" cols="50"></textarea><br>
+    <body>
+        <div class="container">
+            <form id="formTopico">
+                <h1>Cadastrar Topico</h1>
+                <p id="texto">Escolha uma opção:</p>
+                <label for="labelAss">Assunto</label><br>
+                <input type="text" name="assunto" id="assunto"><br>
+                <label for="labelAutor">Autor</label><br>
+                <input type="text" name="autor" id="autor"><br>
+                <label for="label">Texto</label><br>
+                <textarea id="texto" name="texto" maxlength="5000" rows="10" cols="50"></textarea><br>
 
-            <div class="botoes2">
-                <button type="submit" id="cadastrar">Cadastrar</button>
-                <button type="button" id="cancelar">Cancelar</button>
-            </div>
-        </form>
+                <div class="botoes2">
+                    <button type="submit" id="cadastrar">Cadastrar</button>
+                    <button type="button" id="cancelar">Cancelar</button>
+                </div>
+            </form>
 
-        <script type="module" src="/scripts/cadTopico.js"></script>
-    </div>
-</body>
+            <script type="module" src="/scripts/cadTopico.js"></script>
+        </div>
+    </body>
 
 </html>

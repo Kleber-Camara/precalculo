@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html>
-<header>
-    <title>Editar Perfil</title>
-    <link rel="stylesheet" href="/css/cadTopico.css">
-</header>
+    <head>
+        <link rel="icon" href="./images/favicon.ico"/>
+    </head>
+    <header>
+        <title>Editar Perfil</title>
+        <link rel="stylesheet" href="/css/cadTopico.css">
+    </header>
 
-<body>
-    <div class="container">
-        <form id="formSenhaProf">
-            <h1>Atualizar Senha</h1>
-            <label for="labelnome">Senha:</label><br>
-            <input type="password" name="senha" id="senha"><br>
-            <label for="label">Nova Senha:</label><br>
-            <input type="password" name="novaSenha" id="novaSenha" minlength="8"><br>
-            <label for="label">Repita Nova Senha:</label><br>
-            <input type="password" name="novaSenha" id="novaSenha2" minlength="8"><br>
+    <body>
+        <div class="container">
+            <form id="formSenhaProf">
+                <h1>Atualizar Senha</h1>
+                <label for="labelnome">Senha:</label><br>
+                <input type="password" name="senha" id="senha"><br>
+                <label for="label">Nova Senha:</label><br>
+                <input type="password" name="novaSenha" id="novaSenha" minlength="8"><br>
+                <label for="label">Repita Nova Senha:</label><br>
+                <input type="password" name="novaSenha" id="novaSenha2" minlength="8"><br>
 
-            <div class="botoes2">
-                <button type="submit" id="atualizar">Atualizar</button>
-                <button type="button" id="cancelar">Cancelar</button>
-            </div>
-        </form>
+                <div class="botoes2">
+                    <button type="submit" id="atualizar">Atualizar</button>
+                    <button type="button" id="cancelar">Cancelar</button>
+                </div>
+            </form>
 
-        <script type="module" src="/scripts/editSenha.js"></script>
-    </div>
-</body>
+            <script type="module" src="/scripts/editSenha.js"></script>
+        </div>
+    </body>
 
 </html>

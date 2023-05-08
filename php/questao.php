@@ -25,4 +25,34 @@ function createQuestao($assunto, $enun, $opa, $opb, $opc, $opcerta){
     }
 }
 
+function getAllAssuntos(){
+    try{
+        include_once('connection.php');
 
+        $conn = getConn();
+        $sql = "SELECT * FROM questao";
+        $stmt = $conn->prepare($sql);
+
+        $stmt->execute();
+
+        $listAssunto = array();
+
+        if(($stmt) and ($stmt->rowCount() != 0)){
+
+            while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                if(($listAssunto != null)){
+                    if(in_array($row['assunto'], $listAssunto) == false){
+                        array_push($listAssunto, $row['assunto']);
+                    }
+                }else{
+                    array_push($listAssunto, $row['assunto']);
+                }
+            }
+            return $listAssunto;
+        }
+        return null;
+
+    }catch(PDOException $e){
+        $e->getMessage();
+    }
+}
