@@ -16,6 +16,29 @@ class Questao{
         this.#resposta = res;
     }
 
+    getEnunciado(){
+        return this.#enunciado;
+    }
+
+    getCorreta(){
+        return this.#resposta;
+    }
+
+    getALtA(){
+        return this.#alternativaA;
+    }
+
+    getALtB(){
+        return this.#alternativaB;
+    }
+    
+    getALtC(){
+        return this.#alternativaC;
+    }
+
+    getALtCorreta(){
+        return this.#resposta;
+    }
 }
 
 export default Questao
