@@ -16,11 +16,6 @@ class Aluno extends Usuario{
         return this.#curso;
     }
 
-    buscarTopico(){
-        history.pushState({},null, "/buscaTopico.html");
-        location.reload();
-    }
-
     realizarTeste(){
         history.pushState({},null, "/testeRealizar.html");
         location.reload();
