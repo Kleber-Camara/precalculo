@@ -7,7 +7,7 @@ const form = document.getElementById("loginform");
 form.addEventListener('submit', logar);
 
 async function logar(e){
-    e.preventDefault();               ///LINHA COMENTADA REMOVER DEPOIS!!!!!!!
+    e.preventDefault();               
     const formData = new FormData(this);
     const searchParams =  new  URLSearchParams();
 
@@ -21,11 +21,10 @@ async function logar(e){
     });
 
     const realDados = await dados.json();
-    console.log(realDados);
+
     if(realDados['status'] == false){
         return alert(realDados['msg']);
     }else{
-        //console.log(realDados);
         if(realDados['type'] == 'aluno'){
             let aluno = new Aluno(realDados['id'],realDados['nome'], realDados['login'], realDados['senha'],realDados['idLogin'],realDados['email'],realDados['curso']);
             //criar json para dados do aluno antes de ir para a proxima pagina

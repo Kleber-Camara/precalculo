@@ -28,13 +28,13 @@ document.getElementById("questao").onclick = function paginaQuestao(){
     prof.cadastrarQuestoes();
 }
 
-document.getElementById("perfil").onclick = function paginaPerfil(){
-    localStorage.setItem('perfil', prof.getId());
-    history.pushState({},null, "/html/perfilProfessor.html");
+document.getElementById("verQuestoes").onclick = function paginaQuestoes(){
+    history.pushState({},null, "/html/listaQuestoes.html");
     location.reload();
 }
 
-document.getElementById('questao').onclick = function criarQuest(){
-    history.pushState({},null, "/html/cadastroQuestao.html");
+document.getElementById("perfil").onclick = function paginaPerfil(){
+    localStorage.setItem('perfil', prof.getId());
+    history.pushState({},null, "/html/perfilProfessor.html");
     location.reload();
 }

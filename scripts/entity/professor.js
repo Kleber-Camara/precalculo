@@ -8,7 +8,7 @@ class Professor extends Usuario{
 
 
     cadastrarQuestoes(){
-        history.pushState({},null, "/html/cadQuestao.html");
+        history.pushState({},null, "/html/cadastroQuestao.html");
         location.reload();
     }
 

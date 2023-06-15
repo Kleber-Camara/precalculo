@@ -1,5 +1,7 @@
 'use strict'
 
+import Aluno from "./entity/aluno.js";
+
 window.onload = function (){
     preencheEdit();
 }
@@ -17,7 +19,7 @@ document.getElementById("atualizar").onclick = async function atualizarDados(){
             id: dad,
             nome: document.getElementById('nome').value,
             email: document.getElementById('email').value,
-            curso: document.getElementById('curso').value
+            curso: document.getElementById('curso').value 
         }
         const dados = await fetch('/php/updatePerfilAluno.php',{
             method: 'POST',
@@ -27,6 +29,9 @@ document.getElementById("atualizar").onclick = async function atualizarDados(){
         if(dados.ok){
             const realDados = await dados.json();
             alert(realDados['msg']);
+            let aluno = new Aluno(dad,document.getElementById('nome').value, '-', '-', '-', document.getElementById('email').value, document.getElementById('curso').value);
+            let nDados = JSON.stringify(aluno);
+            localStorage.setItem("user",nDados);
             history.pushState({},null, "/html/perfilAluno.html");
             location.reload();
         }else{

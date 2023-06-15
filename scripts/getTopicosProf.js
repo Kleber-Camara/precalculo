@@ -1,19 +1,19 @@
 'use strict'
 
 async function deletaTopico(topico){
-    localStorage.setItem(topico,topico);
     
     localStorage.setItem('deletar',topico);
+    
     let con = confirm("Deseja deletar o topico "+topico+"?");
     if(con == true){
         try{
             let nomeTop = localStorage.getItem('deletar');
-
+            
             const dados = await fetch('/php/deletaTopico.php',{
                 method: 'POST',
                 body: JSON.stringify(nomeTop)
             });
-
+            
             if(dados.ok){
                 const realDados = await dados.json();
                 alert(realDados['msg']);
@@ -62,6 +62,7 @@ async function getTopicos(){
                 for(var obj in realDados){
                     let div = document.createElement('div');
                     let label = document.createElement('label');
+                    let br = document.createElement('br');
 
                     const buttonEditar = document.createElement('button');
                     buttonEditar.textContent = "Editar";
@@ -85,6 +86,7 @@ async function getTopicos(){
                     div.id = "div"+realDados[obj];
                     document.getElementById("formTopico").appendChild(div);
                     document.getElementById("div"+realDados[obj]).appendChild(label);
+                    document.getElementById("div"+realDados[obj]).appendChild(br);
                     document.getElementById("div"+realDados[obj]).appendChild(buttonEditar);
                     document.getElementById("div"+realDados[obj]).appendChild(buttonDeletar);
                     document.getElementById("div"+realDados[obj]).appendChild(buttonVer);

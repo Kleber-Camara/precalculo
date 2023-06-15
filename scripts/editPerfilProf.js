@@ -1,5 +1,7 @@
 'use strict'
 
+import Professor from "./entity/professor.js";
+
 window.onload = function (){
     preencheEdit();
 }
@@ -26,6 +28,9 @@ document.getElementById("atualizar").onclick = async function atualizarDados(){
         if(dados.ok){
             const realDados = await dados.json();
             alert(realDados['msg']);
+            let prof = new Professor(dad,document.getElementById('nome').value, '-', '-', '-', document.getElementById('email').value);
+            let nDados = JSON.stringify(prof);
+            localStorage.setItem("user", nDados);
             history.pushState({},null, "/html/perfilProfessor.html");
             location.reload();
         }else{
@@ -48,7 +53,6 @@ async function preencheEdit(){
 
         if(dados.ok){
             const realDados = await dados.json();
-            //console.log(realDados);
             document.getElementById('nome').value = realDados['nome'];
             document.getElementById('email').value = realDados['email'];
         }else{
