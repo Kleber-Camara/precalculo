@@ -97,3 +97,57 @@
             $e->getMessage();
         }
     }
+
+    function emailExistsProf($email){
+        try{
+            include_once('connection.php');
+    
+            $conn = getConn();
+    
+            $sql = 'SELECT * FROM professor WHERE email=:email';
+    
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':email',$email);
+            $stmt->execute();
+    
+            if(($stmt) and ($stmt->rowCount() != 0)){
+                while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                    return true;
+                }
+            }
+            
+            $conn = null;
+            $stmt = null;
+    
+            return false;
+    
+        }catch(PDOException $e){
+            $e->getMessage();
+        }
+    }
+    
+    function getLoginByEmailProf($email){
+        try{
+            include_once('connection.php');
+    
+            $conn = getConn();
+    
+            $sql = 'SELECT * FROM professor WHERE email=:email';
+    
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':email',$email);
+            $stmt->execute();
+    
+            if(($stmt) and ($stmt->rowCount() != 0)){
+                while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                    return $row['idLogin'];
+                }
+            }
+            
+            return null;
+            
+        }catch(PDOException $e){
+            $e->getMessage();
+        }
+    
+    }
