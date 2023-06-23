@@ -1,7 +1,19 @@
 <?php
 
-    function createProfessor($nome,$email,$idLogin){
-
+    function createProf($nome,$email,$idLogin){
+        try{
+            include_once('connection.php');
+            $conn = getConn();
+            $sql = 'INSERT INTO professor(id,nome,email,idLogin) VALUES (default, :nomeProf, :email, :idLogin);';
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':nomeProf',$nome);
+            $stmt->bindParam(':email',$email);
+            $stmt->bindParam(':idLogin',$idLogin);
+            $stmt->execute();
+            $conn = null;
+        }catch(PDOException $e){
+            $e->getMessage();
+        }
     }
 
     function getProfById($idProf){

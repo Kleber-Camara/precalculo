@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <link rel="icon" href="/images/favicon.ico"/>
+    </head>
+    <header>
+        <title>Cadastrar Usuario</title>
+        <link rel="stylesheet" href="/css/cadAluno.css">
+    </header>
+    <body>
+        <!--INICIO DO FORMULARIO-->
+        <form>
+            <h1>Cadastro</h1>
+            <div class="input-group">
+              <label for="nome">Nome: *</label>
+              <input type="text" id="nome" name="nome" placeholder="Maria Luiza Fonseca">
+            </div>
+            <div class="input-group">
+              <label for="email">Email: *</label>
+              <input type="email" id="email" name="email" placeholder="exemplo@exemplo.com.br" required>
+            </div>
+            <div class="input-group">
+              <label for="login">Login: *</label>
+              <input type="text" id="login" name="login" placeholder="Malu123" required>
+            </div>
+            <div class="input-group">
+              <label for="senha">Senha: *</label>
+              <input type="password" id="senha" name="senha" placeholder="********" required>
+            </div>
+            <div class="button-group">
+              <button type="submit" name="cadastrar" id="criar">Cadastrar</button>
+              <button type="button" name="cancelar" id="cancelar">Cancelar</button>
+            </div>
+          </form>
+        <!--FIM DO FORMULARIO-->
+        <script src="/scripts/cadProf.js"></script>
+    </body>
+</html>

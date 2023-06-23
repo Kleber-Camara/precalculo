@@ -11,30 +11,51 @@ document.getElementById("cancelar").onclick = function paginaTopicos(){
     location.reload();
 }
 
-document.getElementById("atualizar").onclick = async function atualizarDados(){
+document.getElementById("atualizar").onclick = async function atualizarDados(e){
+    e.preventDefault();
 
     try{
         let dad = localStorage.getItem("perfil");
-        let dadosToString = {
-            id: dad,
-            nome: document.getElementById('nome').value,
-            email: document.getElementById('email').value
-        }
-        const dados = await fetch('/php/updatePerfilProf.php',{
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json'},
-            body: JSON.stringify(dadosToString)
-        });
-        if(dados.ok){
-            const realDados = await dados.json();
-            alert(realDados['msg']);
-            let prof = new Professor(dad,document.getElementById('nome').value, '-', '-', '-', document.getElementById('email').value);
-            let nDados = JSON.stringify(prof);
-            localStorage.setItem("user", nDados);
-            history.pushState({},null, "/html/perfilProfessor.html");
-            location.reload();
+
+        if(validacaoEmail(document.getElementById('email').value)){
+
+            const d = await fetch('/php/verificaEmailExist.php',{
+                method: 'POST',
+                body: document.getElementById('email').value
+            });
+    
+            if(d.ok){
+    
+                const dd = await d.json();
+    
+                if(dd['msg'] !='not'){
+                    alert(dd['msg']);
+                }else{
+                    let dadosToString = {
+                        id: dad,
+                        nome: document.getElementById('nome').value,
+                        email: document.getElementById('email').value
+                    }
+                    const dados = await fetch('/php/updatePerfilProf.php',{
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json'},
+                        body: JSON.stringify(dadosToString)
+                    });
+                    if(dados.ok){
+                        const realDados = await dados.json();
+                        alert(realDados['msg']);
+                        let prof = new Professor(dad,document.getElementById('nome').value, '-', '-', '-', document.getElementById('email').value);
+                        let nDados = JSON.stringify(prof);
+                        localStorage.setItem("user", nDados);
+                        history.pushState({},null, "/html/perfilProfessor.html");
+                        location.reload();
+                    }else{
+                        return alert("Ocorreu um problema tente novamente mais tarde!");
+                    }
+                }
+            }
         }else{
-            return alert("Ocorreu um problema tente novamente mais tarde!");
+            alert("O e-mail informado esta incorreto, corrija-o e tente novamente")
         }
                 
     }catch(error){
@@ -61,4 +82,10 @@ async function preencheEdit(){
     }catch(Error){
         console.log(Error);
     }
+}
+
+function validacaoEmail(email) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);          
+  
 }

@@ -24,7 +24,6 @@ document.getElementById("atualizar").onclick = async function atualizarSenha(){
                         id: id,
                         senha: novaSenha
                     }
-                    console.log(dadosToString);
                     const dados = await fetch('/php/updateSenha.php',{
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json'},

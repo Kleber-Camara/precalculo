@@ -31,8 +31,14 @@ document.getElementById("cadastrar").onclick = async function cadastrarQuest(e){
             });
             if(dados.ok){
                 alert("Questão cadastrada com sucesso!");
-                history.pushState({},null, "/html/mainProfessor.html");
-                location.reload();
+
+                document.getElementById('assunto').value = " ";
+                document.getElementById('enun').value = " ";
+                document.getElementById('opa').value = " ";
+                document.getElementById('opb').value = " ";
+                document.getElementById('opc').value = " ";
+                document.getElementById('resp').value = " ";
+                
             }else{
                 alert("Falha ao cadastrar a questão!");
             }

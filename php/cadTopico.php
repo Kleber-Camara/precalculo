@@ -3,12 +3,11 @@
     try{
         include_once('topico.php');
 
-        $assunto = $_POST['assunto'];
-        $texto = $_POST['texto'];
-        $autor = $_POST['autor'];
+       
+        $dados = json_decode(file_get_contents('php://input'), true);
 
-        if(topicoExists($assunto) == false){
-            createTopico($assunto,$texto,$autor);
+        if(topicoExists($dados['assunto']) == false){
+            createTopico($dados['assunto'],$dados['texto'],$dados['autor']);
             echo json_encode(['staus' => true, 'msg' => 'Topico cadastrado com sucesso!']);
         }else{
             echo json_encode(['staus' => false, 'msg' => 'Um assunto com este tema ja foi cadastrado!']);

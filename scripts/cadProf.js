@@ -13,7 +13,6 @@ document.getElementById('criar').onclick = async function criar(e){
     e.preventDefault();
 
     let nome = document.getElementById('nome').value;
-    let curso = document.getElementById('curso').value;
     let email = document.getElementById('email').value;
     let login = document.getElementById('login').value;
     let senha = document.getElementById('senha').value;
@@ -37,14 +36,13 @@ document.getElementById('criar').onclick = async function criar(e){
                 }else{
                     let form = {
                         nome: nome,
-                        curso: curso,
                         email: email,
                         login: login,
                         senha: senha
                     }
         
                     //Preenche a variavel dados com um json com as informações vindas da conexão com o banco de dados
-                    const dados = await fetch('/php/cadAluno.php',{
+                    const dados = await fetch('/php/cadProf.php',{
                         method: 'POST',
                         body: JSON.stringify(form)
                     });
@@ -53,13 +51,13 @@ document.getElementById('criar').onclick = async function criar(e){
         
                     if(realDados['status'] == true){
                         document.getElementById('nome').value = " ";
-                        document.getElementById('curso').value = " ";
                         document.getElementById('email').value = " ";
                         document.getElementById('login').value = " ";
                         document.getElementById('senha').value = " ";
                     }
         
-                    return alert(realDados['msg']);
+                    alert(realDados['msg']);
+                    location.reload();
                 }
             }
         }

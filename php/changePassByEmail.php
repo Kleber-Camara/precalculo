@@ -19,6 +19,7 @@
 
             if($idAluno != null){
                 updateSenha($idAluno, $dados['senha']);
+                $usuario = getLoginById($idAluno);
 
                 $mail = new PHPMailer(true);
                 try{
@@ -36,7 +37,7 @@
                     $mail->addReplyTo('ufersaprecalculopdf@gmail.com','UFERSA PRE-CALCULO');
                     $mail->isHTML(true);
                     $mail->Subject = 'Recuperacao de senha';
-                    $mail->Body = 'A sua senha temporaria é '.$dados['senha'].' use-a para alterar sua senha apos o login';
+                    $mail->Body = 'Ola '.$usuario.' a sua senha temporaria é '.$dados['senha'].' use-a para alterar sua senha apos o login';
                     $mail->AltBody = 'A sua senha temporaria é '.$dados['senha'].' use-a para alterar sua senha apos o login';
                     $mail->send();
 
@@ -49,7 +50,7 @@
                 
             }else if($idProf != null){
                 updateSenha($idProf, $dados['senha']);
-
+                $usuario = getLoginById($idProf);
                 $mail = new PHPMailer(true);
                 try{
                     $mail->SMTPDebug = SMTP::DEBUG_SERVER;
@@ -66,7 +67,7 @@
                     $mail->addReplyTo('ufersaprecalculopdf@gmail.com','UFERSA PRE-CALCULO');
                     $mail->isHTML(true);
                     $mail->Subject = 'Recuperacao de senha';
-                    $mail->Body = 'A sua senha temporaria é '. $dados['senha'].' use-a para alterar sua senha apos o login';
+                    $mail->Body = 'Ola '.$usuario.' a sua senha temporaria é '. $dados['senha'].' use-a para alterar sua senha apos o login';
                     $mail->AltBody = 'A sua senha temporaria é '. $dados['senha'].' use-a para alterar sua senha apos o login';
                     $mail->send();
 
