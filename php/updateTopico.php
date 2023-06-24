@@ -6,7 +6,7 @@
         $id = $top['id'];
         $assunto = $top['assunto'];
         $autor = $top['autor'];
-        $texto = $top['texto'];
+        $texto = nl2br($top['texto']);
 
         updateTopico($id,$assunto,$autor,$texto);
         header('Content-Type: application/json');

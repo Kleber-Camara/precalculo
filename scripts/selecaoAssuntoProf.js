@@ -35,7 +35,6 @@ async function deletaQuestao(questao){
         try{
 
             let nomeQuest = localStorage.getItem('deletar');
-            alert(nomeQuest);
             const dados = await fetch('/php/deleteQuestao.php',{
                 method: 'POST',
                 body: nomeQuest

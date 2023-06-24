@@ -7,7 +7,7 @@
         $dados = json_decode(file_get_contents('php://input'), true);
 
         if(topicoExists($dados['assunto']) == false){
-            createTopico($dados['assunto'],$dados['texto'],$dados['autor']);
+            createTopico($dados['assunto'],nl2br($dados['texto']),$dados['autor']);
             echo json_encode(['staus' => true, 'msg' => 'Topico cadastrado com sucesso!']);
         }else{
             echo json_encode(['staus' => false, 'msg' => 'Um assunto com este tema ja foi cadastrado!']);
