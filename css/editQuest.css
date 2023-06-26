@@ -43,7 +43,7 @@ input[type="text"]{
 	text-align: left; /* alinha o texto à esquerda */
 }
 
-#textoArea{
+#enun{
     width: 100%;
 	padding: 10px;
 	border: 1px solid #ccc;

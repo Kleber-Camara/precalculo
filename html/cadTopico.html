@@ -12,12 +12,14 @@
         <div class="container">
             <form id="formTopico">
                 <h1>Cadastrar Topico</h1>
-                <p id="texto">Escolha uma opção:</p>
-                <label for="labelAss">Assunto</label><br>
-                <input type="text" name="assunto" id="assunto"><br>
-                <label for="label">Texto</label><br>
-                <textarea id="textoArea" name="textos" maxlength="15000" rows="10" cols="50"></textarea><br>
-
+                <label for="labelAss">Assunto:</label><br>
+                <div class="input-group">
+                    <input type="text" name="assunto" id="assunto"><br>
+                </div>
+                <label for="label">Texto: </label><br>
+                <div class="input-group">
+                    <textarea id="textoArea" name="textos" maxlength="15000" rows="10" cols="50"></textarea><br>
+                </div>
                 <div class="botoes2">
                     <button type="submit" id="cadastrar">Cadastrar</button>
                     <button type="button" id="cancelar">Cancelar</button>

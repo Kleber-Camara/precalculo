@@ -43,7 +43,7 @@ input[type="text"]{
 	text-align: left; /* alinha o texto à esquerda */
 }
 
-#textoArea{
+#enun{
     width: 100%;
 	padding: 10px;
 	border: 1px solid #ccc;
@@ -51,10 +51,6 @@ input[type="text"]{
 	box-sizing: border-box;
 	margin-bottom: 20px;
 	text-align: left; /* alinha o texto à esquerda */
-}
-
-#labels{
-    font-weight: bold;
 }
 /* Estilo para os botões do formulário */
 .botoes1 {

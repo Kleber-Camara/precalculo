@@ -32,7 +32,8 @@ form {
 }
 
 /* Estilo para os campos de texto */
-input[type="text"]{
+input[type="text"],
+input[type="password"]{
     max-width: 100%;
     width: 100%;
 	padding: 10px;
@@ -43,19 +44,6 @@ input[type="text"]{
 	text-align: left; /* alinha o texto à esquerda */
 }
 
-#textoArea{
-    width: 100%;
-	padding: 10px;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	box-sizing: border-box;
-	margin-bottom: 20px;
-	text-align: left; /* alinha o texto à esquerda */
-}
-
-#labels{
-    font-weight: bold;
-}
 /* Estilo para os botões do formulário */
 .botoes1 {
     display: flex;
