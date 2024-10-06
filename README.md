@@ -1,0 +1,1 @@
+Este é um projeto feito com o intuito de criar um site para que a universidade fizesse um banco de questoes para que os alunos pudessem estudar matematica básica e se preparar para a materia calculo I.
